@@ -35,3 +35,21 @@ Clone the repo
 ```
 git clone https://github.com/sylesh-687/message-server.git
 ```
+#### Step2
+Update the Manifest with pg_endpoint
+
+```
+vim message-server/apiserver/kubernetes-manifests/message_server.yml
+```
+
+<img width="1469" alt="image" src="https://github.com/sylesh-687/message-server/assets/101313682/342858e2-4790-418a-9e06-d7a3eeac5726">
+
+Apply the manifest
+
+```
+kubectl apply -f message-server/apiserver/kubernetes-manifests/message_server.yml
+```
+
+Access the application at http://<node>:30007
+<img width="1239" alt="image" src="https://github.com/sylesh-687/message-server/assets/101313682/6662758f-8c33-4e0a-9a10-b571d49076fe">
+
