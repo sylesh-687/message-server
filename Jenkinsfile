@@ -27,9 +27,8 @@ pipeline {
          sh '''
            export KUBECONFIG=$KUBECONFIG
            kubectl apply -f apiserver/kubernetes-manifests/message_server.yml
-           kubectl set image deployment/message-server message-server=sylesh687/message-server:\${env.BUILD_TAG}
          '''
-
+         sh "kubectl set image deployment/message-server message-server=sylesh687/message-server:${env.BUILD_TAG}"
          }
        }
      }
