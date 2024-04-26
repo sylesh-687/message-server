@@ -50,7 +50,7 @@ Apply the manifest
 kubectl apply -f message-server/apiserver/kubernetes-manifests/message_server.yml
 ```
 
-Update the Egress in network policy for the webserver
+Update the Egress in network policy for the webserver to postgres
 ```
 vim message-server/apiserver/kubernetes-manifests/message_server.yml
 ```
