@@ -9,7 +9,7 @@ pipeline {
     }
     stage('Build Docker Image'){
       steps {
-        #sh 'echo "Hello Message-Server" '
+        sh 'echo "Hello Message-Server" '
       }
 
     }
