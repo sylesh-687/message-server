@@ -29,6 +29,7 @@ pipeline {
            kubectl apply -f apiserver/kubernetes-manifests/message_server.yml
          '''
          sh "kubectl set image deployment/message-server message-server=sylesh687/message-server:${env.BUILD_TAG}"
+         sh "kubectl rollout status deployment/message-server -n message-server"
          }
        }
      }
