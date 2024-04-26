@@ -26,7 +26,7 @@ pipeline {
          withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]){
          sh '''
            export KUBECONFIG=$KUBECONFIG
-           kubectl apply -f message-server/apiserver/kubernetes-manifests/message_server.yml
+           kubectl apply -f apiserver/kubernetes-manifests/message_server.yml
          '''
 
          }
