@@ -15,3 +15,23 @@ This API service provides endpoints for managing messages, including creating, r
 - PostgresDB
 - Kubernetes Cluster
 - Git
+- Kubectl
+
+### Steps
+In this example i have used multipass for ubuntu containers (https://multipass.run/) and have installed k3s (https://k3s.io/)
+
+#### Step1 
+
+Create Ubuntu Container 
+
+```
+multipass launch --name demo-server --disk 10G
+```
+Enter into the Container
+```
+multipass shell demo-server
+```
+Clone the repo
+```
+git clone https://github.com/sylesh-687/message-server.git
+```
