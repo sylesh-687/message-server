@@ -12,6 +12,7 @@ pipeline {
         sh 'echo "Hello Message-Server" '
         dir("apiserver/"){
           sh 'pwd'
+          docker.build "sylesh687/message-server:${env.BUILD_TAG}"
         }
       }
 
