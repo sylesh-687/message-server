@@ -9,9 +9,7 @@ pipeline {
     }
     stage('Build Docker Image'){
       steps {
-        sh 'echo "Hello Message-Server" '
         dir("apiserver/"){
-          sh 'pwd'
           script {
             docker.withRegistry('https://index.docker.io/v1/','037e759f-0510-4e93-ae9a-7201b932675a'){
               def app=docker.build("sylesh687/message-server:${env.BUILD_TAG}")
@@ -22,6 +20,19 @@ pipeline {
       }
 
     }
+   stage('Deploy Docker Image'){
+     steps{
+       script{
+         withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]){
+         sh '''
+           export KUBECONFIG=$KUBECONFIG
+           kubectl apply -f message-server/apiserver/kubernetes-manifests/message_server.yml
+         '''
+
+         }
+       }
+     }
+   }
 
   }
 }
