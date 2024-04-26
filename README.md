@@ -9,3 +9,9 @@ This API service provides endpoints for managing messages, including creating, r
     "receiver_number": "<PHONE_NUMBER>"
 }
 ```
+
+## How to deploy This application?
+### Pre-reqs
+- PostgresDB
+- Kubernetes Cluster
+- Git
