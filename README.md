@@ -50,6 +50,12 @@ Apply the manifest
 kubectl apply -f message-server/apiserver/kubernetes-manifests/message_server.yml
 ```
 
+Update the Egress in network policy for the webserver
+```
+vim message-server/apiserver/kubernetes-manifests/message_server.yml
+```
+<img width="902" alt="image" src="https://github.com/sylesh-687/message-server/assets/101313682/25b83d74-b2e2-4f8f-aeca-996d88b6378c">
+
 Access the application at http://<node>:30007
 <img width="1239" alt="image" src="https://github.com/sylesh-687/message-server/assets/101313682/6662758f-8c33-4e0a-9a10-b571d49076fe">
 
