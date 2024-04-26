@@ -10,7 +10,7 @@ pipeline {
     stage('Build Docker Image'){
       steps {
         sh 'echo "Hello Message-Server" '
-        def message-server=docker.build("message-server:${env.BUILD_TAG}, '--file' 'apiserver')
+        def messageServer = docker.build("message-server:${env.BUILD_TAG}", "--file apiserver/Dockerfile .")
       }
 
     }
