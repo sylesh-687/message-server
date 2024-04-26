@@ -61,5 +61,44 @@ spec:
       port: 80
       targetPort: 80
       nodePort: 30007
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  namespace: message-server
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: message-server
+  namespace: message-server
+spec:
+  podSelector:
+    matchLabels:
+      app: message-server
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from: 
+    - ipBlock:
+        cidr: 0.0.0.0/0
+    ports:
+    - protocol: TCP
+      port: 80
+  egress:
+  - to:
+    - ipBlock:
+        cidr: 192.168.64.46/32
+    ports:
+    - protocol: TCP
+      port: 5432
+---
 
 
