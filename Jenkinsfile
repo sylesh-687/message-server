@@ -14,7 +14,7 @@ pipeline {
           sh 'pwd'
           script {
             docker.withRegistry('037e759f-0510-4e93-ae9a-7201b932675a'){
-              docker.build("sylesh687/message-server:${env.BUILD_TAG}")
+              docker.build("sylesh687/message-server:${env.BUILD_TAG}").push()
             }
           }
         }
