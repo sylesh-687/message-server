@@ -13,7 +13,10 @@ pipeline {
         dir("apiserver/"){
           sh 'pwd'
           script {
-            docker.build("sylesh687/message-server:${env.BUILD_TAG}")
+            docker.withRegistry('037e759f-0510-4e93-ae9a-7201b932675a'){
+              docker.login()
+              docker.build("sylesh687/message-server:${env.BUILD_TAG}")
+            }
           }
         }
       }
